@@ -20,14 +20,14 @@ class ConfigController extends Controller
         }
 
         return $this->success([
-            'config' => $config
+            'config' => unserialize($config)
         ]);
     }
 
     public function store(Request $request)
     {
         $comment = $request->user()->configs()->create([
-            'value' => $request->get('config', '')
+            'value' => serialize($request->get('config', ''))
         ]);
 
         if (!$comment) {

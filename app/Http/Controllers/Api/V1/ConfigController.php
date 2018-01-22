@@ -27,13 +27,14 @@ class ConfigController extends Controller
     public function store(Request $request)
     {
         $comment = $request->user()->configs()->create([
-            'value' => serialize($request->get('config', ''))
+            'value' => serialize($request->input('config', ''))
         ]);
 
         if (!$comment) {
             return $this->failed('配置更新失败!');
         }
 
-        return $this->success('配置更新成功');
+        $data = ['message' => '配置更新成功', 'data' => $request->all()];
+        return $this->success($data);
     }
 }

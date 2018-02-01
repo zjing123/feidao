@@ -20,9 +20,10 @@ class ConfigController extends Controller
             $config = unserialize($lastConfig->value);
         }
 
-        return $this->success([
-            'config' => $config
-        ]);
+        return [
+           'status' => true,
+           'config' => $config
+        ];
     }
 
     public function store(Request $request)

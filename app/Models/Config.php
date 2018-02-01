@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Config extends Model
 {
     protected $fillable = [
-        'user_id', 'value',
+        'user_id', 'key', 'value',
     ];
 
     public function user()

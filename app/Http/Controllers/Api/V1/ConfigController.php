@@ -13,20 +13,22 @@ class ConfigController extends Controller
 
     public function index(Request $request)
     {
-        $lastConfig = $request->user()->getLastConfig();
+        $key = $request->input('key', '');
+        $lastConfig = $request->user()->getLastConfig($key);
         $config = '';
         if (!empty($lastConfig)) {
-            $config = $lastConfig->value;
+            $config = unserialize($lastConfig->value);
         }
 
         return $this->success([
-            'config' => unserialize($config)
+            'config' => $config
         ]);
     }
 
     public function store(Request $request)
     {
         $comment = $request->user()->configs()->create([
+            'key'   => $request->input('key', ''),
             'value' => serialize($request->input('config', ''))
         ]);
 

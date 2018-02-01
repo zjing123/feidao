@@ -33,8 +33,8 @@ class User extends Authenticatable
         return $this->hasMany(Config::class);
     }
 
-    public function getLastConfig()
+    public function getLastConfig($key = '')
     {
-        return $this->configs()->orderBy('created_at', 'DESC')->first();
+        return $this->configs()->where('key', $key)->orderBy('created_at', 'DESC')->first();
     }
 }

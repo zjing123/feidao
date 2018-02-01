@@ -14,7 +14,7 @@ class AddColumnKeyToConfigsTable extends Migration
     public function up()
     {
         Schema::table('configs', function (Blueprint $table) {
-            $table->string('key', 20)->nullable()->before('value');
+            $table->string('key', 20)->nullable()->after('user_id');
         });
     }
 

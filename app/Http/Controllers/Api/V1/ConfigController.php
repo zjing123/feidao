@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Traits\Api\ApiResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Zend\Diactoros\Response;
 
 class ConfigController extends Controller
 {

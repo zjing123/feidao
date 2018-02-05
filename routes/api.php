@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['as' => 'api.', 'namespace' => 'Api\V1', 'middleware' => ['auth:api']], function () {
     Route::resource('configs', 'ConfigController');
+    Route::get('flysettings', 'FlysettingController@index');
 });
 

@@ -172,6 +172,13 @@ return [
             'TCG\\Voyager\\Widgets\\PageDimmer',
         ],
 
+        'data_tables' => [
+            'bLengthChange' => true,
+            'aLengthMenu'   => [
+                100, 50, 25, 10
+            ]
+        ]
+
     ],
 
     /*

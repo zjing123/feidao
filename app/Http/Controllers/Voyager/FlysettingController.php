@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Voyager;
 use Illuminate\Http\Request;
 use TCG\Voyager\Http\Controllers\VoyagerBreadController as BaseVoyagerBreadController;
 use TCG\Voyager\Facades\Voyager;
+use TCG\Voyager\Database\Schema\SchemaManager;
 
 class FlysettingController extends BaseVoyagerBreadController
 {

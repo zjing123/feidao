@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class FlySetting extends Model
 {
     protected $fillable = [
-        'number', 'angles', 'gravity', 'power', 'scale', 'rx', 'ry', 'rz', 'auto_interval'
+        'number', 'angles', 'gravity', 'power', 'scale', 'rx',
+        'ry', 'rz', 'auto_interval', 'auto_y', 'auto_y', 'auto_d'
     ];
 }

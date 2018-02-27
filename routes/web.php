@@ -18,4 +18,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::group(['middleware' => 'admin.user', 'namespace' => 'Voyager'], function () {
+        Route::post('fly-settings/update/multi', 'FlysettingController@updateMulti')
+            ->name('voyager.fly-settings.multi.update');
+    });
 });

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Voyager;
 
+use App\Models\FlySetting;
 use Illuminate\Http\Request;
 use TCG\Voyager\Http\Controllers\VoyagerBreadController as BaseVoyagerBreadController;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Database\Schema\SchemaManager;
+use DB;
 
 class FlysettingController extends BaseVoyagerBreadController
 {
@@ -78,10 +80,13 @@ class FlysettingController extends BaseVoyagerBreadController
             $view = "voyager::$slug.browse";
         }
 
+        $dataJsonContent = $dataTypeContent->toJson();
+
         //dd($dataTypeContent);
         return Voyager::view($view, compact(
             'dataType',
             'dataTypeContent',
+            'dataJsonContent',
             'isModelTranslatable',
             'search',
             'orderBy',
@@ -89,5 +94,29 @@ class FlysettingController extends BaseVoyagerBreadController
             'searchable',
             'isServerSide'
         ));
+    }
+
+    public function updateMulti(Request $request)
+    {
+        $contents = $request->input('contents');
+        if (!empty($contents)) {
+            $contents = json_decode($contents, true);
+
+            if (is_array($contents)) {
+                foreach ($contents as $content) {
+                    $id = $content['id'];
+                    unset($content['id']);
+                    unset($content['created_at']);
+                    unset($content['updated_at']);
+//                    DB::table('fly_settings')
+//                        ->where('id', $id)
+//                        ->update($content);
+                    FlySetting::where('id', $id)
+                        ->update($content);
+                }
+            }
+        }
+
+        return redirect()->route('voyager.fly-settings.index');
     }
 }

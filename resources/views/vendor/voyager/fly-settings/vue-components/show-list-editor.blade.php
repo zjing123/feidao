@@ -76,7 +76,7 @@
                     <a href="javascript:;" title="{{ __('voyager.generic.delete') }}" class="btn btn-sm btn-danger pull-right delete" :data-id="item.id" :id="'delete-' + item.id">
                         <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">{{ __('voyager.generic.delete') }}</span>
                     </a>
-                    <a :href="'/admin/fly-settings/1/' + item.id + '/edit'" title="{{ __('voyager.generic.edit') }}" class="btn btn-sm btn-primary pull-right edit">
+                    <a :href="'/admin/fly-settings/' + item.id + '/edit'" title="{{ __('voyager.generic.edit') }}" class="btn btn-sm btn-primary pull-right edit">
                         <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">{{ __('voyager.generic.edit') }}</span>
                     </a>
                     {{--<a href="{{ route('voyager.'.$dataType->slug.'.edit', $data->{$data->getKeyName()}) }}" title="{{ __('voyager.generic.edit') }}" class="btn btn-sm btn-primary pull-right edit">--}}

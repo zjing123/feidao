@@ -20,7 +20,7 @@ class AddColumnsToFlySettingsTable extends Migration
             $table->float('level_up_pow')->default(1.3)->after('perfect_mul');
             $table->float('buy_demand_mul')->default(25)->after('level_up_pow');
             $table->float('buy_demand_pow')->default(5)->after('buy_demand_mul');
-            $table->float('buy_auto_mul')->default(5)->after('buy_demand_pow');
+            $table->float('buy_auto_mul')->default(750)->after('buy_demand_pow');
             $table->float('buy_auto_pow')->default(5)->after('buy_auto_mul');
         });
     }

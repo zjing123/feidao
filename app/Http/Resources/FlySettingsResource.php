@@ -23,8 +23,8 @@ class FlySettingsResource extends Resource
                 'rY'           => $this->ry,
                 'rZ'           => $this->rz,
                 'autoInterVal' => $this->auto_interval,
-                'autoX'        => $this->auto_x,
-                'autoY'        => $this->auto_y,
+                'autoX'        => (float)$this->auto_x,
+                'autoY'        => (float)$this->auto_y,
                 'autoD'        => $this->auto_d,
                 'created_at'   => $this->created_at,
                 'updated_at'   => $this->updated_at

@@ -24,3 +24,5 @@ Route::group(['prefix' => 'admin'], function () {
             ->name('voyager.fly-settings.multi.update');
     });
 });
+
+Route::get('test', 'TestController@index')->name('test');

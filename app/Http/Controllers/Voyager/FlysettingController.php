@@ -108,6 +108,7 @@ class FlysettingController extends BaseVoyagerBreadController
                     unset($content['id']);
                     unset($content['created_at']);
                     unset($content['updated_at']);
+                    $content = array_filter($content);
 //                    DB::table('fly_settings')
 //                        ->where('id', $id)
 //                        ->update($content);

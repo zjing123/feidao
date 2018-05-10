@@ -101,17 +101,13 @@ class FlysettingController extends BaseVoyagerBreadController
         $contents = $request->input('contents');
         if (!empty($contents)) {
             $contents = json_decode($contents, true);
-
             if (is_array($contents)) {
                 foreach ($contents as $content) {
                     $id = $content['id'];
                     unset($content['id']);
                     unset($content['created_at']);
                     unset($content['updated_at']);
-                    $content = array_filter($content);
-//                    DB::table('fly_settings')
-//                        ->where('id', $id)
-//                        ->update($content);
+//                    $content = array_filter($content);
                     FlySetting::where('id', $id)
                         ->update($content);
                 }
